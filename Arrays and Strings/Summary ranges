@@ -1,0 +1,19 @@
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+        String str="";
+        List<String> list = new ArrayList<>();
+        for(int i = 0; i < nums.length; i++){
+            if(i < nums.length - 1 && nums[i] == nums[i + 1] - 1){
+                str=nums[i]+"->";
+                while(i < nums.length - 1 && nums[i] == nums[i + 1] - 1)
+                    i++;
+                str+=nums[i];
+                list.add(str);
+                str="";
+            }else{
+                list.add(nums[i] + "");
+            }
+        }
+        return list;
+    }
+}
